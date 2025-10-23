@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エクセルデータ加工システム</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Meiryo, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .version {
+            display: inline-block;
+            background: rgba(255,255,255,0.3);
+            padding: 5px 15px;
+            border-radius: 15px;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        .buttons {
+            display: grid;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px;
+            text-decoration: none;
+            border-radius: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .btn-icon {
+            font-size: 2.5em;
+            margin-right: 20px;
+        }
+
+        .btn-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .btn-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .btn-desc {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        .btn-arrow {
+            font-size: 2em;
+            opacity: 0.7;
+        }
+
+        .features {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .features h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .feature-icon {
+            font-size: 1.8em;
+            margin-right: 12px;
+        }
+
+        .feature-text {
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        footer {
+            background: #2d3436;
+            color: white;
+            padding: 25px 40px;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .btn {
+                padding: 20px;
+            }
+
+            .btn-title {
+                font-size: 1.2em;
+            }
+
+            .btn-icon {
+                font-size: 2em;
+            }
+
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">📊</div>
+            <h1>エクセルデータ加工システム</h1>
+            <p class="subtitle">Excel Data Processing System</p>
+            <div class="version">v1.3.0</div>
+        </header>
+
+        <div class="content">
+            <div class="buttons">
+                <a href="https://excel-app-enseneki.streamlit.app/" target="_blank" class="btn btn-primary">
+                    <div class="btn-icon">🚀</div>
+                    <div class="btn-content">
+                        <div class="btn-title">アプリを起動</div>
+                        <div class="btn-desc">ブラウザで今すぐ使用開始</div>
+                    </div>
+                    <div class="btn-arrow">→</div>
+                </a>
+
+                <a href="docs/user_manual.html" class="btn btn-secondary">
+                    <div class="btn-icon">📖</div>
+                    <div class="btn-content">
+                        <div class="btn-title">使い方マニュアル</div>
+                        <div class="btn-desc">詳しい使用方法を確認</div>
+                    </div>
+                    <div class="btn-arrow">→</div>
+                </a>
+            </div>
+
+            <div class="features">
+                <h2>✨ 主な機能</h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">📁</div>
+                        <div class="feature-text">Excel・CSV対応</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔍</div>
+                        <div class="feature-text">異常値自動検出</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <div class="feature-text">色分け表示</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <div class="feature-text">柔軟なデータ構造</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; color: #666;">
+                <p>2つのExcel/CSVファイルを比較・加工し、</p>
+                <p>4シートを含む1つのExcelファイルを出力します</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 エクセルデータ加工システム</p>
+            <p style="margin-top: 8px;">Powered by Streamlit & Python</p>
+        </footer>
+    </div>
+</body>
+</html>
